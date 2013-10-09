@@ -17,19 +17,22 @@
     <script type="text/javascript">
     
       function initialize() {
-    //  if (GBrowserIsCompatible()) 
-    // from ProfHacker post but not working
         var mapOptions = {
           center: new google.maps.LatLng(41.8819, -87.6278),
           // above LatLng is chicago. so west & south are negative
           zoom: 11,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.SATELLITE
 
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
 
-// try rat pic here
+
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+ // try rat pic here
  // Create a marker icon
       var rat = new GIcon();
       rat.image = "http://members.madasafish.com/~cj_whitehound/Rats_Nest/artwork/clipart/b+w_ship_rat.gif";
@@ -39,12 +42,7 @@
       markerOptions = { icon:rat };
       // Set up the point
       var point = new GLatLng(41.8819, -87.6278);
-      map.addOverlay(new GMarker(point, markerOptions));
-
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-      
-     
+      map.addOverlay(new GMarker(point, markerOptions));    
       
       
     </script>
